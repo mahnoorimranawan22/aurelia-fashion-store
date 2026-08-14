@@ -44,8 +44,20 @@
     img.alt = product.name;
     nameEl.textContent = product.name;
     catEl.textContent = CATEGORY_LABELS[product.category] || product.category;
-    priceEl.textContent = fmt(product.price);
+    priceEl.innerHTML = fmt(product.price) + (product.oldPrice ? ' <del class="price-old">' + fmt(product.oldPrice) + '</del>' : '');
     descEl.textContent = product.desc;
+
+    var pBadge = document.getElementById('p-badge');
+    if (pBadge) {
+        var bText = badgeText(product);
+        if (bText) {
+            pBadge.textContent = bText;
+            pBadge.className = 'card-badge product-page-badge badge-' + badgeClass(product);
+            pBadge.style.display = 'inline-block';
+        } else {
+            pBadge.style.display = 'none';
+        }
+    }
     crumbEl.textContent = product.name;
 
     var pRating = document.getElementById('p-rating');
@@ -115,9 +127,15 @@
                 '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy">' +
                 '<h3>' + p.name + '</h3>';
 
+            var badge = document.createElement('div');
+            if (badgeText(p)) {
+                badge.className = 'card-badge badge-' + badgeClass(p);
+                badge.textContent = badgeText(p);
+            }
+
             var price = document.createElement('p');
             price.className = 'price';
-            price.textContent = fmt(p.price);
+            price.innerHTML = fmt(p.price) + (p.oldPrice ? ' <del class="price-old">' + fmt(p.oldPrice) + '</del>' : '');
 
             var rating = document.createElement('div');
             rating.className = 'product-rating';
@@ -133,6 +151,7 @@
             btn.setAttribute('data-img', p.img);
             btn.textContent = 'Add to Cart';
 
+            if (badge.textContent) card.insertBefore(badge, card.firstChild);
             card.appendChild(link);
             card.appendChild(price);
             card.appendChild(rating);

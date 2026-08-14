@@ -4,7 +4,7 @@
 
 var PRODUCTS = [
     {
-        id: 'd1', name: 'Elegant Dress', price: 59.99, img: 'images/dress1.jpg', category: 'dresses',
+        id: 'd1', name: 'Elegant Dress', price: 59.99, oldPrice: 74.99, img: 'images/dress1.jpg', category: 'dresses',
         rating: 4.6, reviewCount: 18, sizes: ['XS', 'S', 'M', 'L', 'XL'],
         desc: 'A timeless floor-length silhouette in lustrous satin. The Elegant Dress cinches softly at the waist and drapes to perfection — ideal for galas, dinners, and evenings that call for understated glamour.',
         reviews: [
@@ -24,7 +24,7 @@ var PRODUCTS = [
         ]
     },
     {
-        id: 'd3', name: 'Luxury Handbag', price: 89.99, img: 'images/dress3.jpg', category: 'bags',
+        id: 'd3', name: 'Luxury Handbag', price: 89.99, badge: 'Bestseller', img: 'images/dress3.jpg', category: 'bags',
         rating: 4.9, reviewCount: 31, sizes: ['One Size'],
         desc: 'Handcrafted from pebbled Italian leather with brushed-gold hardware. Spacious enough for the day, refined enough for the night — the Luxury Handbag is your signature piece.',
         reviews: [
@@ -34,7 +34,7 @@ var PRODUCTS = [
         ]
     },
     {
-        id: 'd4', name: 'Modern Heels', price: 69.99, img: 'images/dress4.jpg', category: 'shoes',
+        id: 'd4', name: 'Modern Heels', price: 69.99, oldPrice: 84.99, img: 'images/dress4.jpg', category: 'shoes',
         rating: 4.4, reviewCount: 15, sizes: ['36', '37', '38', '39', '40', '41'],
         desc: 'A sculpted 90 mm heel with a cushioned insole and elegant pointed toe. Modern Heels pair quiet comfort with a striking silhouette you will reach for every season.',
         reviews: [
@@ -44,7 +44,7 @@ var PRODUCTS = [
         ]
     },
     {
-        id: 'd9', name: 'Silk Evening Dress', price: 119.99, img: 'images/dress6.jpg', category: 'dresses',
+        id: 'd9', name: 'Silk Evening Dress', price: 119.99, badge: 'New', img: 'images/dress6.jpg', category: 'dresses',
         rating: 4.7, reviewCount: 22, sizes: ['XS', 'S', 'M', 'L', 'XL'],
         desc: 'Floating bias-cut silk with a plunging neckline and delicate spaghetti straps. The Silk Evening Dress catches the light — and every eye in the room.',
         reviews: [
@@ -54,7 +54,7 @@ var PRODUCTS = [
         ]
     },
     {
-        id: 'd10', name: 'Floral Midi Dress', price: 64.99, img: 'images/dress7.jpg', category: 'dresses',
+        id: 'd10', name: 'Floral Midi Dress', price: 64.99, oldPrice: 79.99, img: 'images/dress7.jpg', category: 'dresses',
         rating: 4.5, reviewCount: 17, sizes: ['XS', 'S', 'M', 'L', 'XL'],
         desc: 'A romantic midi in a hand-drawn floral print. Ruffled sleeves, a flattering wrap waist, and a skirt that moves with you.',
         reviews: [
@@ -84,7 +84,7 @@ var PRODUCTS = [
         ]
     },
     {
-        id: 'd13', name: 'Evening Gown', price: 139.99, img: 'images/dress10.jpg', category: 'dresses',
+        id: 'd13', name: 'Evening Gown', price: 139.99, badge: 'Limited', img: 'images/dress10.jpg', category: 'dresses',
         rating: 4.9, reviewCount: 28, sizes: ['XS', 'S', 'M', 'L', 'XL'],
         desc: 'Full-length drama in liquid jersey with a subtle cowl neck and open back. The Evening Gown is reserved for unforgettable nights.',
         reviews: [
@@ -94,7 +94,7 @@ var PRODUCTS = [
         ]
     },
     {
-        id: 'd14', name: 'Statement Blazer', price: 129.99, img: 'images/dress11.jpg', category: 'outerwear',
+        id: 'd14', name: 'Statement Blazer', price: 129.99, oldPrice: 159.99, img: 'images/dress11.jpg', category: 'outerwear',
         rating: 4.3, reviewCount: 12, sizes: ['XS', 'S', 'M', 'L', 'XL'],
         desc: 'Bold shoulders, sharp peak lapels, and a slightly cropped cut. The Statement Blazer turns the simplest outfit into a look.',
         reviews: [
@@ -114,7 +114,7 @@ var PRODUCTS = [
         ]
     },
     {
-        id: 'd16', name: 'Leather Ankle Boots', price: 119.99, img: 'images/dress13.jpg', category: 'shoes',
+        id: 'd16', name: 'Leather Ankle Boots', price: 119.99, oldPrice: 144.99, img: 'images/dress13.jpg', category: 'shoes',
         rating: 4.5, reviewCount: 16, sizes: ['36', '37', '38', '39', '40', '41'],
         desc: 'Sleek Chelsea boots in supple leather with a stacked heel and elastic side panels. Year-round polish, straight from the box.',
         reviews: [
@@ -134,4 +134,18 @@ var CATEGORY_LABELS = {
 
 function getProduct(id) {
     return PRODUCTS.filter(function (p) { return p.id === id; })[0] || PRODUCTS[0];
+}
+
+function discountPct(p) {
+    return p.oldPrice ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
+}
+
+function badgeText(p) {
+    if (p.badge) return p.badge;
+    return p.oldPrice ? '-' + discountPct(p) + '%' : '';
+}
+
+function badgeClass(p) {
+    if (p.badge) return p.badge.toLowerCase();
+    return 'sale';
 }

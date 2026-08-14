@@ -111,33 +111,70 @@ function fillCardRatings() {
 
 fillCardRatings();
 
-/* ---------- Shop category filters ---------- */
+/* ---------- Shop search, sort & category filters ---------- */
 const filterBtns = document.querySelectorAll('.filter-btn');
-const shopCards = document.querySelectorAll('.product-card[data-category]');
+const shopCards = Array.prototype.slice.call(document.querySelectorAll('.product-card[data-category]'));
 const filterCount = document.getElementById('product-count');
+const searchInput = document.getElementById('product-search');
+const sortSelect = document.getElementById('sort-select');
 
-if (filterBtns.length) {
-    function applyFilter(filter) {
-        let shown = 0;
-        shopCards.forEach(function (card) {
-            const visible = filter === 'all' || card.getAttribute('data-category') === filter;
-            card.style.display = visible ? '' : 'none';
-            if (visible) shown += 1;
-        });
-        filterBtns.forEach(function (b) {
-            b.classList.toggle('active', b.getAttribute('data-filter') === filter);
-        });
-        if (filterCount) filterCount.textContent = 'Showing ' + shown + ' of ' + shopCards.length + ' items';
-    }
+let activeFilter = 'all';
+let searchTerm = '';
 
-    filterBtns.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-            applyFilter(btn.getAttribute('data-filter'));
-        });
+function applyShopControls() {
+    if (!shopCards.length) return;
+
+    // filter by category + search term
+    let visible = shopCards.filter(function (card) {
+        const catOk = activeFilter === 'all' || card.getAttribute('data-category') === activeFilter;
+        const name = (card.getAttribute('data-name') || '').toLowerCase();
+        const term = searchTerm.trim().toLowerCase();
+        const searchOk = !term || name.indexOf(term) !== -1;
+        return catOk && searchOk;
     });
 
-    applyFilter('all');
+    // sort
+    if (sortSelect && sortSelect.value !== 'featured') {
+        const mode = sortSelect.value;
+        visible.sort(function (a, b) {
+            if (mode === 'price-asc') return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+            if (mode === 'price-desc') return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+            if (mode === 'rating-desc') return parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating);
+            return 0;
+        });
+    }
+
+    // hide all, then show + reorder the grid to match the sorted order
+    shopCards.forEach(function (card) { card.style.display = 'none'; });
+    visible.forEach(function (card) { card.style.display = ''; });
+    const grid = document.querySelector('.product-grid');
+    if (grid) visible.forEach(function (card) { grid.appendChild(card); });
+
+    filterBtns.forEach(function (b) {
+        b.classList.toggle('active', b.getAttribute('data-filter') === activeFilter);
+    });
+    if (filterCount) filterCount.textContent = 'Showing ' + visible.length + ' of ' + shopCards.length + ' items';
 }
+
+filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+        activeFilter = btn.getAttribute('data-filter');
+        applyShopControls();
+    });
+});
+
+if (searchInput) {
+    searchInput.addEventListener('input', function () {
+        searchTerm = searchInput.value;
+        applyShopControls();
+    });
+}
+
+if (sortSelect) {
+    sortSelect.addEventListener('change', applyShopControls);
+}
+
+applyShopControls();
 
 /* ---------- Scroll reveal ---------- */
 const revealEls = document.querySelectorAll('.reveal');

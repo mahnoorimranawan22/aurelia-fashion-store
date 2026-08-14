@@ -6,8 +6,10 @@ A polished, fully responsive fashion storefront built with **HTML5, CSS3, and va
 
 ## ✨ Features
 
-- **Product catalog** — 16 products across Dresses, Outerwear, Bags, and Shoes
-- **Product pages** — dedicated detail page per product (`product.html?id=d1`) with breadcrumbs, size selector, quantity, and "You may also like" recommendations
+- **Product catalog** — 12 products across Dresses, Outerwear, Bags, and Shoes
+- **Product pages** — dedicated detail page per product (`product.html?id=d1`) with breadcrumbs, size selector, quantity, ratings & reviews, and "You may also like" recommendations
+- **Search, sort & filters** — live product search, category filters, and sorting by price or rating
+- **Sales & badges** — discount pricing with strikethrough originals and New / Bestseller / Limited badges
 - **Cart & checkout** — slide-in cart drawer, quantity controls, live totals, and a checkout modal; cart persists in `localStorage`
 - **Dark mode** — toggle in the header, remembers your choice, and respects system preference on first visit
 - **Animations** — scroll-reveal sections, staggered card entrances, image zooms, button shine effects, and smooth theme transitions (respects `prefers-reduced-motion`)
