@@ -9,6 +9,16 @@
 
     <title>Shop | AURELA Fashion Store</title>
 
+    <meta name="description" content="Browse the full AURELA collection — elegant dresses, outerwear, bags, and shoes. New arrivals added weekly.">
+    <meta name="author" content="AURELA">
+    <meta name="theme-color" content="#9E3B4E">
+    <meta property="og:title" content="Shop | AURELA Fashion Store">
+    <meta property="og:description" content="Browse the full AURELA collection — elegant dresses, outerwear, bags, and shoes.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/hero.jpg">
+    <meta property="og:url" content="https://mahnoorimranawan22.github.io/aurelia-fashion-store/">
+    <meta name="twitter:card" content="summary_large_image">
+
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%239E3B4E'/><text x='50' y='70' font-size='56' text-anchor='middle' fill='white' font-family='Georgia, serif'>A</text></svg>">
 
@@ -118,62 +128,166 @@
 
             </div>
 
+            <div class="filter-bar reveal">
+
+                <button class="filter-btn active" data-filter="all">All</button>
+
+                <button class="filter-btn" data-filter="dresses">Dresses</button>
+
+                <button class="filter-btn" data-filter="outerwear">Outerwear</button>
+
+                <button class="filter-btn" data-filter="bags">Bags</button>
+
+                <button class="filter-btn" data-filter="shoes">Shoes</button>
+
+            </div>
+
+            <p class="filter-count reveal" id="product-count"></p>
+
             <div class="product-grid">
 
-                <div class="product-card reveal">
-                    <img src="images/dress1.jpg" alt="Elegant Dress" loading="lazy">
-                    <h3>Elegant Dress</h3>
+                <div class="product-card reveal" data-category="dresses">
+                    <a href="product.html?id=d1" class="card-link">
+                        <img src="images/dress1.jpg" alt="Elegant Dress" loading="lazy">
+                        <h3>Elegant Dress</h3>
+                    </a>
                     <p class="price">$59.99</p>
                     <button class="btn add-to-cart" data-id="d1" data-name="Elegant Dress" data-price="59.99" data-img="images/dress1.jpg">Add to Cart</button>
                 </div>
 
-                <div class="product-card reveal">
-                    <img src="images/dress2.jpg" alt="Classic Blazer" loading="lazy">
-                    <h3>Classic Blazer</h3>
+                <div class="product-card reveal" data-category="outerwear">
+                    <a href="product.html?id=d2" class="card-link">
+                        <img src="images/dress2.jpg" alt="Classic Blazer" loading="lazy">
+                        <h3>Classic Blazer</h3>
+                    </a>
                     <p class="price">$79.99</p>
                     <button class="btn add-to-cart" data-id="d2" data-name="Classic Blazer" data-price="79.99" data-img="images/dress2.jpg">Add to Cart</button>
                 </div>
 
-                <div class="product-card reveal">
-                    <img src="images/dress3.jpg" alt="Luxury Handbag" loading="lazy">
-                    <h3>Luxury Handbag</h3>
+                <div class="product-card reveal" data-category="bags">
+                    <a href="product.html?id=d3" class="card-link">
+                        <img src="images/dress3.jpg" alt="Luxury Handbag" loading="lazy">
+                        <h3>Luxury Handbag</h3>
+                    </a>
                     <p class="price">$89.99</p>
                     <button class="btn add-to-cart" data-id="d3" data-name="Luxury Handbag" data-price="89.99" data-img="images/dress3.jpg">Add to Cart</button>
                 </div>
 
-                <div class="product-card reveal">
-                    <img src="images/dress4.jpg" alt="Modern Heels" loading="lazy">
-                    <h3>Modern Heels</h3>
+                <div class="product-card reveal" data-category="shoes">
+                    <a href="product.html?id=d4" class="card-link">
+                        <img src="images/dress4.jpg" alt="Modern Heels" loading="lazy">
+                        <h3>Modern Heels</h3>
+                    </a>
                     <p class="price">$69.99</p>
                     <button class="btn add-to-cart" data-id="d4" data-name="Modern Heels" data-price="69.99" data-img="images/dress4.jpg">Add to Cart</button>
                 </div>
 
-                <div class="product-card reveal">
-                    <img src="images/dress5.jpg" alt="Summer Dress" loading="lazy">
-                    <h3>Summer Dress</h3>
+                <div class="product-card reveal" data-category="dresses">
+                    <a href="product.html?id=d5" class="card-link">
+                        <img src="images/dress5.jpg" alt="Summer Dress" loading="lazy">
+                        <h3>Summer Dress</h3>
+                    </a>
                     <p class="price">$54.99</p>
                     <button class="btn add-to-cart" data-id="d5" data-name="Summer Dress" data-price="54.99" data-img="images/dress5.jpg">Add to Cart</button>
                 </div>
 
-                <div class="product-card reveal">
-                    <img src="images/dress2.jpg" alt="Formal Coat" loading="lazy">
-                    <h3>Formal Coat</h3>
+                <div class="product-card reveal" data-category="outerwear">
+                    <a href="product.html?id=d6" class="card-link">
+                        <img src="images/dress2.jpg" alt="Formal Coat" loading="lazy">
+                        <h3>Formal Coat</h3>
+                    </a>
                     <p class="price">$99.99</p>
                     <button class="btn add-to-cart" data-id="d6" data-name="Formal Coat" data-price="99.99" data-img="images/dress2.jpg">Add to Cart</button>
                 </div>
 
-                <div class="product-card reveal">
-                    <img src="images/dress3.jpg" alt="Leather Bag" loading="lazy">
-                    <h3>Leather Bag</h3>
+                <div class="product-card reveal" data-category="bags">
+                    <a href="product.html?id=d7" class="card-link">
+                        <img src="images/dress3.jpg" alt="Leather Bag" loading="lazy">
+                        <h3>Leather Bag</h3>
+                    </a>
                     <p class="price">$74.99</p>
                     <button class="btn add-to-cart" data-id="d7" data-name="Leather Bag" data-price="74.99" data-img="images/dress3.jpg">Add to Cart</button>
                 </div>
 
-                <div class="product-card reveal">
-                    <img src="images/dress4.jpg" alt="Fashion Heels" loading="lazy">
-                    <h3>Fashion Heels</h3>
+                <div class="product-card reveal" data-category="shoes">
+                    <a href="product.html?id=d8" class="card-link">
+                        <img src="images/dress4.jpg" alt="Fashion Heels" loading="lazy">
+                        <h3>Fashion Heels</h3>
+                    </a>
                     <p class="price">$84.99</p>
                     <button class="btn add-to-cart" data-id="d8" data-name="Fashion Heels" data-price="84.99" data-img="images/dress4.jpg">Add to Cart</button>
+                </div>
+
+                <div class="product-card reveal" data-category="dresses">
+                    <a href="product.html?id=d9" class="card-link">
+                        <img src="images/dress6.jpg" alt="Silk Evening Dress" loading="lazy">
+                        <h3>Silk Evening Dress</h3>
+                    </a>
+                    <p class="price">$119.99</p>
+                    <button class="btn add-to-cart" data-id="d9" data-name="Silk Evening Dress" data-price="119.99" data-img="images/dress6.jpg">Add to Cart</button>
+                </div>
+
+                <div class="product-card reveal" data-category="dresses">
+                    <a href="product.html?id=d10" class="card-link">
+                        <img src="images/dress7.jpg" alt="Floral Midi Dress" loading="lazy">
+                        <h3>Floral Midi Dress</h3>
+                    </a>
+                    <p class="price">$64.99</p>
+                    <button class="btn add-to-cart" data-id="d10" data-name="Floral Midi Dress" data-price="64.99" data-img="images/dress7.jpg">Add to Cart</button>
+                </div>
+
+                <div class="product-card reveal" data-category="outerwear">
+                    <a href="product.html?id=d11" class="card-link">
+                        <img src="images/dress8.jpg" alt="Tailored Trench" loading="lazy">
+                        <h3>Tailored Trench</h3>
+                    </a>
+                    <p class="price">$109.99</p>
+                    <button class="btn add-to-cart" data-id="d11" data-name="Tailored Trench" data-price="109.99" data-img="images/dress8.jpg">Add to Cart</button>
+                </div>
+
+                <div class="product-card reveal" data-category="bags">
+                    <a href="product.html?id=d12" class="card-link">
+                        <img src="images/dress9.jpg" alt="Designer Tote" loading="lazy">
+                        <h3>Designer Tote</h3>
+                    </a>
+                    <p class="price">$94.99</p>
+                    <button class="btn add-to-cart" data-id="d12" data-name="Designer Tote" data-price="94.99" data-img="images/dress9.jpg">Add to Cart</button>
+                </div>
+
+                <div class="product-card reveal" data-category="dresses">
+                    <a href="product.html?id=d13" class="card-link">
+                        <img src="images/dress10.jpg" alt="Evening Gown" loading="lazy">
+                        <h3>Evening Gown</h3>
+                    </a>
+                    <p class="price">$139.99</p>
+                    <button class="btn add-to-cart" data-id="d13" data-name="Evening Gown" data-price="139.99" data-img="images/dress10.jpg">Add to Cart</button>
+                </div>
+
+                <div class="product-card reveal" data-category="outerwear">
+                    <a href="product.html?id=d14" class="card-link">
+                        <img src="images/dress11.jpg" alt="Statement Blazer" loading="lazy">
+                        <h3>Statement Blazer</h3>
+                    </a>
+                    <p class="price">$129.99</p>
+                    <button class="btn add-to-cart" data-id="d14" data-name="Statement Blazer" data-price="129.99" data-img="images/dress11.jpg">Add to Cart</button>
+                </div>
+
+                <div class="product-card reveal" data-category="bags">
+                    <a href="product.html?id=d15" class="card-link">
+                        <img src="images/dress12.jpg" alt="Weekend Bag" loading="lazy">
+                        <h3>Weekend Bag</h3>
+                    </a>
+                    <p class="price">$84.99</p>
+                    <button class="btn add-to-cart" data-id="d15" data-name="Weekend Bag" data-price="84.99" data-img="images/dress12.jpg">Add to Cart</button>
+                </div>
+
+                <div class="product-card reveal" data-category="shoes">
+                    <a href="product.html?id=d16" class="card-link">
+                        <img src="images/dress13.jpg" alt="Leather Ankle Boots" loading="lazy">
+                        <h3>Leather Ankle Boots</h3>
+                    </a>
+                    <p class="price">$119.99</p>
+                    <button class="btn add-to-cart" data-id="d16" data-name="Leather Ankle Boots" data-price="119.99" data-img="images/dress13.jpg">Add to Cart</button>
                 </div>
 
             </div>

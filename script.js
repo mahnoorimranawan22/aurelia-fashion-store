@@ -81,6 +81,34 @@ if (backToTop) {
     });
 }
 
+/* ---------- Shop category filters ---------- */
+const filterBtns = document.querySelectorAll('.filter-btn');
+const shopCards = document.querySelectorAll('.product-card[data-category]');
+const filterCount = document.getElementById('product-count');
+
+if (filterBtns.length) {
+    function applyFilter(filter) {
+        let shown = 0;
+        shopCards.forEach(function (card) {
+            const visible = filter === 'all' || card.getAttribute('data-category') === filter;
+            card.style.display = visible ? '' : 'none';
+            if (visible) shown += 1;
+        });
+        filterBtns.forEach(function (b) {
+            b.classList.toggle('active', b.getAttribute('data-filter') === filter);
+        });
+        if (filterCount) filterCount.textContent = 'Showing ' + shown + ' of ' + shopCards.length + ' items';
+    }
+
+    filterBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            applyFilter(btn.getAttribute('data-filter'));
+        });
+    });
+
+    applyFilter('all');
+}
+
 /* ---------- Scroll reveal ---------- */
 const revealEls = document.querySelectorAll('.reveal');
 

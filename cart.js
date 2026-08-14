@@ -126,12 +126,18 @@
             var name = addBtn.getAttribute('data-name');
             var price = parseFloat(addBtn.getAttribute('data-price')) || 0;
             var img = addBtn.getAttribute('data-img');
+            var size = addBtn.getAttribute('data-size') || '';
+            var addQty = parseInt(addBtn.getAttribute('data-qty'), 10) || 1;
 
-            var existing = cart.filter(function (i) { return i.id === id; })[0];
+            // Same product in different sizes gets its own cart line
+            var uid = size ? id + '-' + size : id;
+            var displayName = name + (size && size !== 'One Size' ? ' (' + size + ')' : '');
+
+            var existing = cart.filter(function (i) { return i.id === uid; })[0];
             if (existing) {
-                existing.qty += 1;
+                existing.qty += addQty;
             } else {
-                cart.push({ id: id, name: name, price: price, img: img, qty: 1 });
+                cart.push({ id: uid, name: displayName, price: price, img: img, qty: addQty });
             }
             saveCart();
             render();

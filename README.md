@@ -1,62 +1,63 @@
-# 👗 AURÉLIA Fashion Store
+# AURELA — Fashion Store
 
-AURÉLIA Fashion Store is a modern and responsive fashion website built using **HTML5** and **CSS3**. The project showcases a clean and elegant user interface for an online clothing store.
+A polished, fully responsive fashion storefront built with **HTML5, CSS3, and vanilla JavaScript** — no frameworks, no build step. Click a product, choose a size, and check out, all client-side.
 
-## 🌟 Features
+![AURELA](images/hero.jpg)
 
-- Responsive homepage
-- Modern navigation bar
-- Hero section
-- Fashion categories
-- Featured products
-- About page
-- Contact page with contact form
-- Professional footer
-- Clean and simple design
+## ✨ Features
 
-## 🛠️ Technologies Used
+- **Product catalog** — 16 products across Dresses, Outerwear, Bags, and Shoes
+- **Product pages** — dedicated detail page per product (`product.html?id=d1`) with breadcrumbs, size selector, quantity, and "You may also like" recommendations
+- **Cart & checkout** — slide-in cart drawer, quantity controls, live totals, and a checkout modal; cart persists in `localStorage`
+- **Dark mode** — toggle in the header, remembers your choice, and respects system preference on first visit
+- **Animations** — scroll-reveal sections, staggered card entrances, image zooms, button shine effects, and smooth theme transitions (respects `prefers-reduced-motion`)
+- **Fully responsive** — mobile-first layout with a hamburger menu; verified at 375px and desktop widths
+- **SEO-ready** — per-page meta descriptions, Open Graph, and Twitter cards
 
-- HTML5
-- CSS3
-- Google Fonts
-- Font Awesome
-
-## 📂 Project Structure
+## 🗂 Project structure
 
 ```
-AURELIA-FASHION-STORE/
-│
-├── index.html
-├── shop.html
-├── about.html
-├── contact.html
-├── style.css
-└── images/
+├── index.html      # Home — hero, categories, featured products, about
+├── shop.html       # Full catalog with category filters
+├── product.html    # Product detail page (?id=<product-id>)
+├── about.html      # Brand story
+├── contact.html    # Contact info & form
+├── products.js     # Product catalog (single source of truth)
+├── product.js      # Product page renderer
+├── script.js       # Theme toggle, navigation, reveals, shop filters
+├── cart.js         # Cart drawer, quantities, checkout, toasts
+├── style.css       # All styling (light/dark themes via CSS variables)
+└── images/         # Product & banner imagery (Unsplash-licensed photos)
 ```
 
-## 📸 Website Pages
+## 🚀 Getting started
 
-- 🏠 Home
-- 🛍️ Shop
-- ℹ️ About
-- 📞 Contact
+This is a static site — no dependencies or build step required.
 
-## 🎯 Purpose
+1. Clone the repo:
 
-This project was created to practice front-end web development using only HTML and CSS. It demonstrates responsive layouts, clean UI design, Flexbox, Grid, and basic website structure.
+   ```bash
+   git clone https://github.com/mahnoorimranawan22/aurelia-fashion-store.git
+   ```
 
-## 🚀 How to Run
+2. Open `index.html` in your browser, or serve the folder locally:
 
-1. Download or clone the repository.
-2. Open the project folder.
-3. Open `index.html` in your web browser.
+   ```bash
+   python -m http.server 8000
+   # then visit http://localhost:8000
+   ```
 
-## 👩‍💻 Author
+## 🛍 How the cart works
 
-**Mahnoor Imran**
+- Click **Add to Cart** on any product card (or choose a size/quantity on a product page first)
+- Open the cart with the bag icon in the header
+- Adjust quantities, remove items, or hit **Checkout** to place an order
+- The cart survives page reloads via `localStorage`
 
-BS Software Engineering Student
+## 🖼 Credits
 
----
+Photography courtesy of [Unsplash](https://unsplash.com) (free license). Fonts: [Playfair Display](https://fonts.google.com/specimen/Playfair+Display) & [Poppins](https://fonts.google.com/specimen/Poppins) via Google Fonts. Icons by [Font Awesome](https://fontawesome.com).
 
-⭐ If you like this project, consider giving it a star on GitHub!
+## 📄 License
+
+MIT — free to use and modify.

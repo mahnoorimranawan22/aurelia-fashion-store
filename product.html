@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product | AURELA Fashion Store</title>
+
+    <meta name="description" content="Shop premium fashion at AURELA — elegant dresses, outerwear, bags, and shoes with free shipping and 30-day returns.">
+    <meta name="author" content="AURELA">
+    <meta name="theme-color" content="#9E3B4E">
+    <meta property="og:title" content="AURELA Fashion Store">
+    <meta property="og:description" content="Shop premium fashion at AURELA — elegant dresses, outerwear, bags, and shoes.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/hero.jpg">
+    <meta property="og:url" content="https://mahnoorimranawan22.github.io/aurelia-fashion-store/">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%239E3B4E'/><text x='50' y='70' font-size='56' text-anchor='middle' fill='white' font-family='Georgia, serif'>A</text></svg>">
+
+    <!-- Theme init (avoids light/dark flash) -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('aurela-theme');
+                if (!t) t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+        })();
+    </script>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="container">
+
+            <nav class="navbar">
+
+                <a href="index.html" class="logo">AURELA</a>
+
+                <ul class="nav-links">
+
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html" class="active">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+
+                <div class="nav-actions">
+
+                    <button class="cart-btn" id="cart-btn" aria-label="Open cart">
+
+                        <i class="fas fa-shopping-bag"></i>
+
+                        <span class="cart-count" id="cart-count">0</span>
+
+                    </button>
+
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+
+                        <i class="fas fa-moon" id="theme-icon"></i>
+
+                    </button>
+
+                    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+
+                        <span></span><span></span><span></span>
+
+                    </button>
+
+                </div>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- ================= PRODUCT ================= -->
+
+    <section class="product-page">
+
+        <div class="container">
+
+            <!-- Breadcrumb -->
+
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+
+                <a href="index.html">Home</a>
+
+                <span class="crumb-sep">/</span>
+
+                <a href="shop.html">Shop</a>
+
+                <span class="crumb-sep">/</span>
+
+                <span id="crumb-name">Product</span>
+
+            </nav>
+
+            <!-- Detail -->
+
+            <div class="product-detail">
+
+                <div class="product-gallery reveal reveal-left">
+
+                    <img id="p-img" src="images/hero.jpg" alt="Product">
+
+                </div>
+
+                <div class="product-info reveal reveal-right">
+
+                    <span class="product-cat" id="p-cat"></span>
+
+                    <h1 id="p-name"></h1>
+
+                    <p class="product-price" id="p-price"></p>
+
+                    <p class="product-desc" id="p-desc"></p>
+
+                    <div class="size-block">
+
+                        <span class="size-label">Select size</span>
+
+                        <div class="size-selector" id="p-sizes"></div>
+
+                    </div>
+
+                    <div class="buy-row">
+
+                        <div class="qty-selector">
+
+                            <button type="button" id="qty-minus" aria-label="Decrease quantity">&#8722;</button>
+
+                            <span id="qty-val">1</span>
+
+                            <button type="button" id="qty-plus" aria-label="Increase quantity">+</button>
+
+                        </div>
+
+                        <button type="button" class="btn add-to-cart" id="p-add">Add to Cart</button>
+
+                    </div>
+
+                    <div class="product-meta">
+
+                        <p><i class="fas fa-truck"></i> Free shipping on orders over $75</p>
+
+                        <p><i class="fas fa-undo"></i> 30-day free returns</p>
+
+                        <p><i class="fas fa-shield-alt"></i> 2-year quality guarantee</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Related -->
+
+            <div class="related">
+
+                <div class="section-title reveal">
+
+                    <h2>You May Also Like</h2>
+
+                    <p>Complete the look with these favourites.</p>
+
+                </div>
+
+                <div class="product-grid" id="related-grid"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="container footer-container">
+
+            <div class="footer-box">
+
+                <h2>AURELA</h2>
+
+                <p>
+                    Modern fashion for every occasion.
+                </p>
+
+                <ul class="socials">
+
+                    <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+
+                    <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+
+                    <li><a href="#" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a></li>
+
+                    <li><a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-box">
+
+                <h3>Quick Links</h3>
+
+                <ul>
+
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-box">
+
+                <h3>Contact</h3>
+
+                <p>Email: info@aurela.com</p>
+
+                <p>Phone: +92 300 1234567</p>
+
+                <p>Abbottabad, Pakistan</p>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 AURELA Fashion Store. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- ================= CART ================= -->
+
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+
+        <div class="cart-header">
+
+            <h3>Your Cart</h3>
+
+            <button class="cart-close" id="cart-close" aria-label="Close cart"><i class="fas fa-times"></i></button>
+
+        </div>
+
+        <div class="cart-items" id="cart-items"></div>
+
+        <div class="cart-footer">
+
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+
+            <button class="btn" id="cart-checkout">Checkout</button>
+
+        </div>
+
+    </aside>
+
+    <!-- Checkout modal -->
+
+    <div class="checkout-modal" id="checkout-modal">
+
+        <div class="checkout-overlay"></div>
+
+        <div class="checkout-box" id="checkout-box">
+
+            <button class="checkout-close" id="checkout-close" aria-label="Close checkout"><i class="fas fa-times"></i></button>
+
+            <h3>Checkout</h3>
+
+            <p>Almost done — enter your details to place the order.</p>
+
+            <form id="checkout-form">
+
+                <input type="text" name="name" placeholder="Full Name" required>
+
+                <input type="email" name="email" placeholder="Email Address" required>
+
+                <input type="text" name="address" placeholder="Shipping Address" required>
+
+                <button type="submit" class="btn">Place Order</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Toast -->
+
+    <div class="toast" id="toast"></div>
+
+    <!-- Back to top -->
+
+    <button id="back-to-top" aria-label="Back to top">
+
+        <i class="fas fa-arrow-up"></i>
+
+    </button>
+
+    <!-- JS -->
+
+    <script src="products.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="cart.js" defer></script>
+    <script src="product.js" defer></script>
+
+</body>
+
+</html>
