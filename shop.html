@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 
 <head>
 
@@ -7,12 +7,29 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Shop | AURÉLIA Fashion Store</title>
+    <title>Shop | AURELA Fashion Store</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%239E3B4E'/><text x='50' y='70' font-size='56' text-anchor='middle' fill='white' font-family='Georgia, serif'>A</text></svg>">
+
+    <!-- Theme init (avoids light/dark flash) -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('aurela-theme');
+                if (!t) t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+        })();
+    </script>
 
     <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap"
         rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
@@ -29,9 +46,7 @@
 
             <nav class="navbar">
 
-                <a href="index.html" class="logo">
-                    AURÉLIA
-                </a>
+                <a href="index.html" class="logo">AURELA</a>
 
                 <ul class="nav-links">
 
@@ -44,6 +59,30 @@
                     <li><a href="contact.html">Contact</a></li>
 
                 </ul>
+
+                <div class="nav-actions">
+
+                    <button class="cart-btn" id="cart-btn" aria-label="Open cart">
+
+                        <i class="fas fa-shopping-bag"></i>
+
+                        <span class="cart-count" id="cart-count">0</span>
+
+                    </button>
+
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+
+                        <i class="fas fa-moon" id="theme-icon"></i>
+
+                    </button>
+
+                    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+
+                        <span></span><span></span><span></span>
+
+                    </button>
+
+                </div>
 
             </nav>
 
@@ -71,62 +110,70 @@
 
         <div class="container">
 
+            <div class="section-title reveal">
+
+                <h2>Shop the Look</h2>
+
+                <p>Hand-picked pieces for every occasion.</p>
+
+            </div>
+
             <div class="product-grid">
 
-                <div class="product-card">
-                    <img src="images/dress1.jpg" alt="Elegant Dress">
+                <div class="product-card reveal">
+                    <img src="images/dress1.jpg" alt="Elegant Dress" loading="lazy">
                     <h3>Elegant Dress</h3>
                     <p class="price">$59.99</p>
-                    <a href="#" class="btn">Buy Now</a>
+                    <button class="btn add-to-cart" data-id="d1" data-name="Elegant Dress" data-price="59.99" data-img="images/dress1.jpg">Add to Cart</button>
                 </div>
 
-                <div class="product-card">
-                    <img src="images/dress2.jpg" alt="Classic Blazer">
+                <div class="product-card reveal">
+                    <img src="images/dress2.jpg" alt="Classic Blazer" loading="lazy">
                     <h3>Classic Blazer</h3>
                     <p class="price">$79.99</p>
-                    <a href="#" class="btn">Buy Now</a>
+                    <button class="btn add-to-cart" data-id="d2" data-name="Classic Blazer" data-price="79.99" data-img="images/dress2.jpg">Add to Cart</button>
                 </div>
 
-                <div class="product-card">
-                    <img src="images/dress3.jpg" alt="Luxury Handbag">
+                <div class="product-card reveal">
+                    <img src="images/dress3.jpg" alt="Luxury Handbag" loading="lazy">
                     <h3>Luxury Handbag</h3>
                     <p class="price">$89.99</p>
-                    <a href="#" class="btn">Buy Now</a>
+                    <button class="btn add-to-cart" data-id="d3" data-name="Luxury Handbag" data-price="89.99" data-img="images/dress3.jpg">Add to Cart</button>
                 </div>
 
-                <div class="product-card">
-                    <img src="images/dress4.jpg" alt="Modern Heels">
+                <div class="product-card reveal">
+                    <img src="images/dress4.jpg" alt="Modern Heels" loading="lazy">
                     <h3>Modern Heels</h3>
                     <p class="price">$69.99</p>
-                    <a href="#" class="btn">Buy Now</a>
+                    <button class="btn add-to-cart" data-id="d4" data-name="Modern Heels" data-price="69.99" data-img="images/dress4.jpg">Add to Cart</button>
                 </div>
 
-                <div class="product-card">
-                    <img src="images/dress1.jpg" alt="Summer Dress">
+                <div class="product-card reveal">
+                    <img src="images/dress5.jpg" alt="Summer Dress" loading="lazy">
                     <h3>Summer Dress</h3>
                     <p class="price">$54.99</p>
-                    <a href="#" class="btn">Buy Now</a>
+                    <button class="btn add-to-cart" data-id="d5" data-name="Summer Dress" data-price="54.99" data-img="images/dress5.jpg">Add to Cart</button>
                 </div>
 
-                <div class="product-card">
-                    <img src="images/dress2.jpg" alt="Formal Coat">
+                <div class="product-card reveal">
+                    <img src="images/dress2.jpg" alt="Formal Coat" loading="lazy">
                     <h3>Formal Coat</h3>
                     <p class="price">$99.99</p>
-                    <a href="#" class="btn">Buy Now</a>
+                    <button class="btn add-to-cart" data-id="d6" data-name="Formal Coat" data-price="99.99" data-img="images/dress2.jpg">Add to Cart</button>
                 </div>
 
-                <div class="product-card">
-                    <img src="images/dress3.jpg" alt="Leather Bag">
+                <div class="product-card reveal">
+                    <img src="images/dress3.jpg" alt="Leather Bag" loading="lazy">
                     <h3>Leather Bag</h3>
                     <p class="price">$74.99</p>
-                    <a href="#" class="btn">Buy Now</a>
+                    <button class="btn add-to-cart" data-id="d7" data-name="Leather Bag" data-price="74.99" data-img="images/dress3.jpg">Add to Cart</button>
                 </div>
 
-                <div class="product-card">
-                    <img src="images/dress4.jpg" alt="Fashion Heels">
+                <div class="product-card reveal">
+                    <img src="images/dress4.jpg" alt="Fashion Heels" loading="lazy">
                     <h3>Fashion Heels</h3>
                     <p class="price">$84.99</p>
-                    <a href="#" class="btn">Buy Now</a>
+                    <button class="btn add-to-cart" data-id="d8" data-name="Fashion Heels" data-price="84.99" data-img="images/dress4.jpg">Add to Cart</button>
                 </div>
 
             </div>
@@ -142,8 +189,21 @@
         <div class="container footer-container">
 
             <div class="footer-box">
-                <h2>AURÉLIA</h2>
+                <h2>AURELA</h2>
                 <p>Modern fashion for every occasion.</p>
+
+                <ul class="socials">
+
+                    <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+
+                    <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+
+                    <li><a href="#" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a></li>
+
+                    <li><a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a></li>
+
+                </ul>
+
             </div>
 
             <div class="footer-box">
@@ -153,8 +213,11 @@
                 <ul>
 
                     <li><a href="index.html">Home</a></li>
+
                     <li><a href="shop.html">Shop</a></li>
+
                     <li><a href="about.html">About</a></li>
+
                     <li><a href="contact.html">Contact</a></li>
 
                 </ul>
@@ -165,9 +228,11 @@
 
                 <h3>Contact</h3>
 
-                <p>Email: info@aurelia.com</p>
+                <p>Email: info@aurela.com</p>
 
                 <p>Phone: +92 300 1234567</p>
+
+                <p>Abbottabad, Pakistan</p>
 
             </div>
 
@@ -175,11 +240,87 @@
 
         <div class="footer-bottom">
 
-            <p>© 2026 AURÉLIA Fashion Store. All Rights Reserved.</p>
+            <p>© 2026 AURELA Fashion Store. All Rights Reserved.</p>
 
         </div>
 
     </footer>
+
+    <!-- ================= CART ================= -->
+
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+
+        <div class="cart-header">
+
+            <h3>Your Cart</h3>
+
+            <button class="cart-close" id="cart-close" aria-label="Close cart"><i class="fas fa-times"></i></button>
+
+        </div>
+
+        <div class="cart-items" id="cart-items"></div>
+
+        <div class="cart-footer">
+
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+
+            <button class="btn" id="cart-checkout">Checkout</button>
+
+        </div>
+
+    </aside>
+
+    <!-- Checkout modal -->
+
+    <div class="checkout-modal" id="checkout-modal">
+
+        <div class="checkout-overlay"></div>
+
+        <div class="checkout-box" id="checkout-box">
+
+            <button class="checkout-close" id="checkout-close" aria-label="Close checkout"><i class="fas fa-times"></i></button>
+
+            <h3>Checkout</h3>
+
+            <p>Almost done — enter your details to place the order.</p>
+
+            <form id="checkout-form">
+
+                <input type="text" name="name" placeholder="Full Name" required>
+
+                <input type="email" name="email" placeholder="Email Address" required>
+
+                <input type="text" name="address" placeholder="Shipping Address" required>
+
+                <button type="submit" class="btn">Place Order</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Toast -->
+
+    <div class="toast" id="toast"></div>
+
+    <!-- Back to top -->
+
+    <button id="back-to-top" aria-label="Back to top">
+
+        <i class="fas fa-arrow-up"></i>
+
+    </button>
+
+    <!-- JS -->
+
+    <script src="script.js" defer></script>
+    <script src="cart.js" defer></script>
 
 </body>
 

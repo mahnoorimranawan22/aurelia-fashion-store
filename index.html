@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 
 <head>
 
@@ -7,7 +7,21 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AURÉLIA Fashion Store</title>
+    <title>AURELA Fashion Store</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%239E3B4E'/><text x='50' y='70' font-size='56' text-anchor='middle' fill='white' font-family='Georgia, serif'>A</text></svg>">
+
+    <!-- Theme init (avoids light/dark flash) -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('aurela-theme');
+                if (!t) t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+        })();
+    </script>
 
     <!-- Google Fonts -->
     <link
@@ -36,7 +50,7 @@
 
                 <a href="index.html" class="logo">
 
-                    AURÉLIA
+                    AURELA
 
                 </a>
 
@@ -53,6 +67,32 @@
                     <li><a href="contact.html">Contact</a></li>
 
                 </ul>
+
+                <!-- Header actions -->
+
+                <div class="nav-actions">
+
+                    <button class="cart-btn" id="cart-btn" aria-label="Open cart">
+
+                        <i class="fas fa-shopping-bag"></i>
+
+                        <span class="cart-count" id="cart-count">0</span>
+
+                    </button>
+
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+
+                        <i class="fas fa-moon" id="theme-icon"></i>
+
+                    </button>
+
+                    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+
+                        <span></span><span></span><span></span>
+
+                    </button>
+
+                </div>
 
             </nav>
 
@@ -95,17 +135,21 @@
 
             <div class="hero-image">
 
-                <img src="./images/hero.jpg" alt="Fashion Model">
+                <img src="images/hero.jpg" alt="Fashion Model">
 
             </div>
+
+        </div>
+
     </section>
+
     <!-- ================= CATEGORIES ================= -->
 
     <section class="categories">
 
         <div class="container">
 
-            <div class="section-title">
+            <div class="section-title reveal">
 
                 <h2>Shop by Category</h2>
 
@@ -117,9 +161,9 @@
 
                 <!-- Category 1 -->
 
-                <div class="category-card">
+                <div class="category-card reveal">
 
-                    <img src="images/women.jpg" alt="Women Fashion">
+                    <img src="images/women.jpg" alt="Women Fashion" loading="lazy">
 
                     <h3>Women</h3>
 
@@ -127,9 +171,9 @@
 
                 <!-- Category 2 -->
 
-                <div class="category-card">
+                <div class="category-card reveal">
 
-                    <img src="images/men.jpg" alt="Men Fashion">
+                    <img src="images/men.jpg" alt="Men Fashion" loading="lazy">
 
                     <h3>Men</h3>
 
@@ -137,9 +181,9 @@
 
                 <!-- Category 3 -->
 
-                <div class="category-card">
+                <div class="category-card reveal">
 
-                    <img src="images/accessories.jpg" alt="Accessories">
+                    <img src="images/accessories.jpg" alt="Accessories" loading="lazy">
 
                     <h3>Accessories</h3>
 
@@ -147,9 +191,9 @@
 
                 <!-- Category 4 -->
 
-                <div class="category-card">
+                <div class="category-card reveal">
 
-                    <img src="images/shoes.jpg" alt="Footwear">
+                    <img src="images/shoes.jpg" alt="Footwear" loading="lazy">
 
                     <h3>Footwear</h3>
 
@@ -167,7 +211,7 @@
 
         <div class="container">
 
-            <div class="section-title">
+            <div class="section-title reveal">
 
                 <h2>Featured Products</h2>
 
@@ -179,57 +223,57 @@
 
                 <!-- Product 1 -->
 
-                <div class="product-card">
+                <div class="product-card reveal">
 
-                    <img src="images/dress1.jpg" alt="Elegant Dress">
+                    <img src="images/dress1.jpg" alt="Elegant Dress" loading="lazy">
 
                     <h3>Elegant Dress</h3>
 
                     <p class="price">$59.99</p>
 
-                    <a href="shop.html" class="btn">View Product</a>
+                    <button class="btn add-to-cart" data-id="d1" data-name="Elegant Dress" data-price="59.99" data-img="images/dress1.jpg">Add to Cart</button>
 
                 </div>
 
                 <!-- Product 2 -->
 
-                <div class="product-card">
+                <div class="product-card reveal">
 
-                    <img src="images/dress2.jpg" alt="Classic Blazer">
+                    <img src="images/dress2.jpg" alt="Classic Blazer" loading="lazy">
 
                     <h3>Classic Blazer</h3>
 
                     <p class="price">$79.99</p>
 
-                    <a href="shop.html" class="btn">View Product</a>
+                    <button class="btn add-to-cart" data-id="d2" data-name="Classic Blazer" data-price="79.99" data-img="images/dress2.jpg">Add to Cart</button>
 
                 </div>
 
                 <!-- Product 3 -->
 
-                <div class="product-card">
+                <div class="product-card reveal">
 
-                    <img src="images/dress3.jpg" alt="Luxury Handbag">
+                    <img src="images/dress3.jpg" alt="Luxury Handbag" loading="lazy">
 
                     <h3>Luxury Handbag</h3>
 
                     <p class="price">$89.99</p>
 
-                    <a href="shop.html" class="btn">View Product</a>
+                    <button class="btn add-to-cart" data-id="d3" data-name="Luxury Handbag" data-price="89.99" data-img="images/dress3.jpg">Add to Cart</button>
 
                 </div>
 
                 <!-- Product 4 -->
 
-                <div class="product-card">
+                <div class="product-card reveal">
 
-                    <img src="images/dress4.jpg" alt="Modern Heels">
+                    <img src="images/dress4.jpg" alt="Modern Heels" loading="lazy">
 
                     <h3>Modern Heels</h3>
 
                     <p class="price">$69.99</p>
 
-                    <a href="shop.html" class="btn">View Product</a>
+                    <button class="btn add-to-cart" data-id="d4" data-name="Modern Heels" data-price="69.99" data-img="images/dress4.jpg">Add to Cart</button>
 
                 </div>
 
@@ -247,20 +291,20 @@
 
             <!-- Image -->
 
-            <div class="about-image">
+            <div class="about-image reveal reveal-left">
 
-                <img src="images/about.jpg" alt="About AURÉLIA">
+                <img src="images/about.jpg" alt="About AURELA" loading="lazy">
 
             </div>
 
             <!-- Content -->
 
-            <div class="about-content">
+            <div class="about-content reveal reveal-right">
 
-                <h2>About AURÉLIA</h2>
+                <h2>About AURELA</h2>
 
                 <p>
-                    AURÉLIA is a modern fashion brand that combines elegance,
+                    AURELA is a modern fashion brand that combines elegance,
                     comfort, and quality. Our collections are designed for people
                     who want to express confidence through timeless fashion.
                 </p>
@@ -291,12 +335,24 @@
 
             <div class="footer-box">
 
-                <h2>AURÉLIA</h2>
+                <h2>AURELA</h2>
 
                 <p>
-                    AURÉLIA is a modern fashion brand offering stylish,
+                    AURELA is a modern fashion brand offering stylish,
                     elegant, and high-quality clothing for every occasion.
                 </p>
+
+                <ul class="socials">
+
+                    <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+
+                    <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+
+                    <li><a href="#" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a></li>
+
+                    <li><a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a></li>
+
+                </ul>
 
             </div>
 
@@ -326,7 +382,7 @@
 
                 <h3>Contact</h3>
 
-                <p>Email: info@aurelia.com</p>
+                <p>Email: info@aurela.com</p>
 
                 <p>Phone: +92 300 1234567</p>
 
@@ -339,12 +395,88 @@
         <div class="footer-bottom">
 
             <p>
-                © 2026 AURÉLIA Fashion Store. All Rights Reserved.
+                © 2026 AURELA Fashion Store. All Rights Reserved.
             </p>
 
         </div>
 
     </footer>
+
+    <!-- ================= CART ================= -->
+
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+
+        <div class="cart-header">
+
+            <h3>Your Cart</h3>
+
+            <button class="cart-close" id="cart-close" aria-label="Close cart"><i class="fas fa-times"></i></button>
+
+        </div>
+
+        <div class="cart-items" id="cart-items"></div>
+
+        <div class="cart-footer">
+
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+
+            <button class="btn" id="cart-checkout">Checkout</button>
+
+        </div>
+
+    </aside>
+
+    <!-- Checkout modal -->
+
+    <div class="checkout-modal" id="checkout-modal">
+
+        <div class="checkout-overlay"></div>
+
+        <div class="checkout-box" id="checkout-box">
+
+            <button class="checkout-close" id="checkout-close" aria-label="Close checkout"><i class="fas fa-times"></i></button>
+
+            <h3>Checkout</h3>
+
+            <p>Almost done — enter your details to place the order.</p>
+
+            <form id="checkout-form">
+
+                <input type="text" name="name" placeholder="Full Name" required>
+
+                <input type="email" name="email" placeholder="Email Address" required>
+
+                <input type="text" name="address" placeholder="Shipping Address" required>
+
+                <button type="submit" class="btn">Place Order</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Toast -->
+
+    <div class="toast" id="toast"></div>
+
+    <!-- Back to top -->
+
+    <button id="back-to-top" aria-label="Back to top">
+
+        <i class="fas fa-arrow-up"></i>
+
+    </button>
+
+    <!-- JS -->
+
+    <script src="script.js" defer></script>
+    <script src="cart.js" defer></script>
 
 </body>
 

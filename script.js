@@ -1,0 +1,132 @@
+/* =========================================================
+   AURÉLIA - Site interactions
+   ========================================================= */
+
+// Let CSS know JS is available (enables reveal animations safely)
+document.documentElement.classList.remove('no-js');
+
+/* ---------- Dark mode toggle ---------- */
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+
+let theme = document.documentElement.getAttribute('data-theme') || 'light';
+
+function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    if (themeIcon) themeIcon.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+}
+
+applyTheme(theme);
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+        // Flag the switch so CSS can animate the colour transition
+        document.documentElement.classList.add('theme-switching');
+        theme = theme === 'dark' ? 'light' : 'dark';
+        try { localStorage.setItem('aurela-theme', theme); } catch (e) {}
+        applyTheme(theme);
+        setTimeout(function () {
+            document.documentElement.classList.remove('theme-switching');
+        }, 500);
+    });
+}
+
+const header = document.querySelector('header');
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+const backToTop = document.getElementById('back-to-top');
+
+/* ---------- Sticky header shadow ---------- */
+function onScroll() {
+    if (header) header.classList.toggle('scrolled', window.scrollY > 10);
+    if (backToTop) backToTop.classList.toggle('show', window.scrollY > 400);
+}
+
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+/* ---------- Mobile navigation toggle ---------- */
+function closeNav() {
+    if (navLinks) navLinks.classList.remove('open');
+    if (navToggle) {
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+    }
+}
+
+if (navToggle && navLinks) {
+    navToggle.addEventListener('click', function () {
+        const open = navLinks.classList.toggle('open');
+        navToggle.classList.toggle('open', open);
+        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    // Close the menu after choosing a link
+    navLinks.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closeNav);
+    });
+
+    // Close when clicking outside the menu
+    document.addEventListener('click', function (e) {
+        if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+            closeNav();
+        }
+    });
+}
+
+/* ---------- Back to top ---------- */
+if (backToTop) {
+    backToTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+/* ---------- Scroll reveal ---------- */
+const revealEls = document.querySelectorAll('.reveal');
+
+if ('IntersectionObserver' in window && revealEls.length) {
+
+    // Stagger sibling reveals (e.g. cards inside a grid)
+    const groups = new Map();
+    revealEls.forEach(function (el) {
+        const parent = el.parentElement;
+        if (!groups.has(parent)) groups.set(parent, []);
+        groups.get(parent).push(el);
+    });
+
+    groups.forEach(function (group) {
+        if (group.length > 1) {
+            group.forEach(function (el, i) {
+                el.style.transitionDelay = Math.min(i * 110, 600) + 'ms';
+            });
+        }
+    });
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                el.classList.add('visible');
+                observer.unobserve(el);
+
+                // Drop the stagger delay + reveal classes once the animation is done,
+                // so hover transforms on cards are not blocked afterwards.
+                const delay = parseFloat(el.style.transitionDelay) || 0;
+                setTimeout(function () {
+                    el.classList.remove('reveal', 'reveal-left', 'reveal-right');
+                    el.style.transitionDelay = '';
+                }, delay + 850);
+            }
+        });
+    }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(function (el) {
+        observer.observe(el);
+    });
+
+} else {
+    // No IntersectionObserver support: show everything
+    revealEls.forEach(function (el) {
+        el.classList.add('visible');
+    });
+}
