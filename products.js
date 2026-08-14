@@ -24,26 +24,6 @@ var PRODUCTS = [
         desc: 'A sculpted 90 mm heel with a cushioned insole and elegant pointed toe. Modern Heels pair quiet comfort with a striking silhouette you will reach for every season.'
     },
     {
-        id: 'd5', name: 'Summer Dress', price: 54.99, img: 'images/dress5.jpg', category: 'dresses',
-        sizes: ['XS', 'S', 'M', 'L', 'XL'],
-        desc: 'Lightweight, breathable, and cut for warm days. The Summer Dress features a breezy A-line skirt, adjustable straps, and a delicate tie at the waist.'
-    },
-    {
-        id: 'd6', name: 'Formal Coat', price: 99.99, img: 'images/dress2.jpg', category: 'outerwear',
-        sizes: ['XS', 'S', 'M', 'L', 'XL'],
-        desc: 'A long-line coat in a structured double-faced weave. With its clean lapels and generous cut, the Formal Coat finishes any outfit with quiet authority.'
-    },
-    {
-        id: 'd7', name: 'Leather Bag', price: 74.99, img: 'images/dress3.jpg', category: 'bags',
-        sizes: ['One Size'],
-        desc: 'Supple full-grain leather, minimal hardware, and a design that only gets better with age. The Leather Bag is built to carry everything that matters.'
-    },
-    {
-        id: 'd8', name: 'Fashion Heels', price: 84.99, img: 'images/dress4.jpg', category: 'shoes',
-        sizes: ['36', '37', '38', '39', '40', '41'],
-        desc: 'Statement heels with a chunky sculpted block and glossy finish. Designed for all-day wear without compromise.'
-    },
-    {
         id: 'd9', name: 'Silk Evening Dress', price: 119.99, img: 'images/dress6.jpg', category: 'dresses',
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
         desc: 'Floating bias-cut silk with a plunging neckline and delicate spaghetti straps. The Silk Evening Dress catches the light — and every eye in the room.'
