@@ -246,5 +246,8 @@
         }
     });
 
+    // Expose for other scripts (e.g. the review form on product pages)
+    window.showToast = showToast;
+
     render();
 })();

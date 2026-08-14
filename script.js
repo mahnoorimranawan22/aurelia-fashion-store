@@ -81,6 +81,36 @@ if (backToTop) {
     });
 }
 
+/* ---------- Star rating helpers ---------- */
+function starsHtml(rating) {
+    var html = '';
+    for (var i = 1; i <= 5; i++) {
+        if (rating >= i) {
+            html += '<i class="fas fa-star"></i>';
+        } else if (rating >= i - 0.5) {
+            html += '<i class="fas fa-star-half-alt"></i>';
+        } else {
+            html += '<i class="far fa-star"></i>';
+        }
+    }
+    return html;
+}
+
+// Fill .product-rating[data-rating] placeholders on cards
+function fillCardRatings() {
+    document.querySelectorAll('.product-rating[data-rating]').forEach(function (el) {
+        var r = parseFloat(el.getAttribute('data-rating')) || 0;
+        var n = el.getAttribute('data-reviews') || '';
+        el.innerHTML =
+            '<span class="rating-stars" aria-label="' + r.toFixed(1) + ' out of 5 stars">' +
+                starsHtml(r) +
+            '</span>' +
+            '<span class="rating-count">' + r.toFixed(1) + (n ? ' (' + n + ')' : '') + '</span>';
+    });
+}
+
+fillCardRatings();
+
 /* ---------- Shop category filters ---------- */
 const filterBtns = document.querySelectorAll('.filter-btn');
 const shopCards = document.querySelectorAll('.product-card[data-category]');

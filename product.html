@@ -137,6 +137,8 @@
 
                     <p class="product-price" id="p-price"></p>
 
+                    <div class="product-rating product-rating-lg" id="p-rating"></div>
+
                     <p class="product-desc" id="p-desc"></p>
 
                     <div class="size-block">
@@ -176,6 +178,64 @@
                 </div>
 
             </div>
+
+            <!-- ================= REVIEWS ================= -->
+
+            <section class="reviews-section">
+
+                <div class="section-title reveal">
+
+                    <h2>Customer Reviews</h2>
+
+                    <p>What our customers are saying.</p>
+
+                </div>
+
+                <div class="reviews-layout">
+
+                    <div class="review-summary reveal reveal-left">
+
+                        <span class="review-avg" id="rev-avg">0.0</span>
+
+                        <div class="rating-stars" id="rev-stars"></div>
+
+                        <p id="rev-count">Based on 0 reviews</p>
+
+                        <div class="rating-breakdown" id="rev-breakdown"></div>
+
+                    </div>
+
+                    <div class="reviews-list" id="reviews-list"></div>
+
+                </div>
+
+                <!-- Write a review -->
+
+                <div class="review-form reveal" id="review-form-wrap">
+
+                    <h3>Write a Review</h3>
+
+                    <form id="review-form">
+
+                        <input type="text" name="rname" placeholder="Your Name" required>
+
+                        <div class="review-stars-input">
+
+                            <span class="size-label">Your rating</span>
+
+                            <div class="star-picker" id="star-picker"></div>
+
+                        </div>
+
+                        <textarea name="rtext" rows="4" placeholder="Share your thoughts on this product..." required></textarea>
+
+                        <button type="submit" class="btn">Submit Review</button>
+
+                    </form>
+
+                </div>
+
+            </section>
 
             <!-- Related -->
 
